@@ -26,8 +26,13 @@ namespace TheApp
 			InitializeComponent ();
 
 
-            ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
-            //ReactiveList<Monkey> Monkies = new ReactiveList<Monkey>();
+
+            //uncomment this to use an ObservableCollection instead and the items will show up in the list
+            //without a problem
+            //ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
+            ReactiveList<Monkey> Monkies = new ReactiveList<Monkey>();
+            
+            
             ObservableCollection<Monkey> Monkies2 = new ObservableCollection<Monkey>();
 
 
