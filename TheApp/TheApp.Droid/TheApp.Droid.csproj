@@ -120,12 +120,6 @@
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SomeLibrary\SomeLibrary.csproj">
-      <Project>{92E518D3-9E53-4A05-88BA-DC1D4B09CE67}</Project>
-      <Name>SomeLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\TheApp\TheApp.projitems" Label="Shared" Condition="Exists('..\TheApp\TheApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

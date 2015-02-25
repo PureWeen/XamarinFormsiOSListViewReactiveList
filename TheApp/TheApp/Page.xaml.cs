@@ -21,6 +21,9 @@ namespace TheApp
     }
 	public partial class Page : ContentPage
 	{
+
+        HttpClient client = new HttpClient();
+
 		public Page ()
 		{
 			InitializeComponent ();
@@ -60,7 +63,7 @@ namespace TheApp
                     var there = Monkies.ToList();
                     Monkies.Clear();
                     there.ForEach(y => Monkies.Add(y));
-                    await new SomeLibrary.Class1().SomeMethod();
+                    await client.GetStringAsync("http://www.google.com");
                     Monkey george = new Monkey() { Name = string.Format("Jungle{0}", i) };
 
                     Monkies.Add(george);
