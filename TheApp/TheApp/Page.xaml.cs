@@ -66,7 +66,8 @@ namespace TheApp
 	public partial class Page : ContentPage
 	{
 
-
+        ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
+        MyCollection Monkies2 = new MyCollection();
         HttpClient client = new HttpClient();
 
 		public Page ()
@@ -78,8 +79,7 @@ namespace TheApp
             //uncomment this to use an ObservableCollection instead and the items will show up in the list
             //without a problem
             //ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
-            ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
-            MyCollection Monkies2 = new MyCollection();
+      
 
 
             Monkies.CollectionChanged += (x, y) =>
