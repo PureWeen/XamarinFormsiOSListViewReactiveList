@@ -21,8 +21,15 @@ namespace TheApp
     }
 	public partial class Page : ContentPage
 	{
-
+            //uncomment this to use an ObservableCollection instead and the items will show up in the list
+                    //without a problem
+                    //ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
+                    ReactiveList<Monkey> Monkies = new ReactiveList<Monkey>();
+                    
+                    
+                    ObservableCollection<Monkey> Monkies2 = new ObservableCollection<Monkey>();
         HttpClient client = new HttpClient();
+
 
 		public Page ()
 		{
@@ -30,13 +37,7 @@ namespace TheApp
 
 
 
-            //uncomment this to use an ObservableCollection instead and the items will show up in the list
-            //without a problem
-            //ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
-            ReactiveList<Monkey> Monkies = new ReactiveList<Monkey>();
-            
-            
-            ObservableCollection<Monkey> Monkies2 = new ObservableCollection<Monkey>();
+        
 
 
             Monkies.CollectionChanged += (x, y) =>
