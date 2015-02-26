@@ -333,7 +333,6 @@ namespace ReactiveUI
 
                 foreach (var handler in handlers) {
                     if (handler.IsActive) {
-                        Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
                         var @delegate = handler.Handler as Delegate;
                         @delegate.DynamicInvoke(sender, args);
                     } else {
