@@ -52,22 +52,34 @@ namespace TheApp
                 };
 
             int i = 0;
-           
 
-            System.Reactive.Linq.Observable.Interval(TimeSpan.FromSeconds(5))
+            bool isrunning = false;
+
+            System.Reactive.Linq.Observable.Interval(TimeSpan.FromSeconds(2))
+                .Where(_ => !isrunning)
                 .SubscribeOn(RxApp.MainThreadScheduler)
                 .Subscribe(async x =>
                 {
+                    try
+                    {
+                        isrunning = true;
+                        var there = Monkies.ToList();
+                        Monkies.Clear();
+                        there.ForEach(y => Monkies.Add(y));
+                        await client.GetStringAsync("http://www.google.com");
+                        Monkey george = new Monkey() { Name = string.Format("Jungle{0}", i) };
 
-
-                    var there = Monkies.ToList();
-                    Monkies.Clear();
-                    there.ForEach(y => Monkies.Add(y));
-                    await client.GetStringAsync("http://www.google.com");
-                    Monkey george = new Monkey() { Name = string.Format("Jungle{0}", i) };
-
-                    Monkies.Add(george);
-                    i++;
+                        Monkies.Add(george);
+                        i++;
+                    }
+                    catch
+                    {
+                        throw;
+                    }
+                    finally
+                    {
+                        isrunning = false;
+                    }
                 });
             theView.ItemsSource = Monkies;
             theViewPart2.ItemsSource = Monkies2;

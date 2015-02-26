@@ -7,12 +7,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        
-                        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
-                            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                                <Label Text="{Binding .}" YAlign="Center" FontSize="Medium" />
-                                <Label Text="hint: trigger a context action" YAlign="Center" FontSize="Small" />
-                            </StackLayout>
+                        <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                            <Label Text="{Binding Name}" YAlign="Center" FontSize="Medium" />
+                            <Label Text="hint: trigger a context action" YAlign="Center" FontSize="Small" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -20,17 +17,16 @@
 
         </ListView>
         <ListView x:Name="theViewPart2">
-            <DataTemplate>
-                <ViewCell>
-
-                    <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
                         <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                            <Label Text="{Binding .}" YAlign="Center" FontSize="Medium" />
+                            <Label Text="{Binding Name}" YAlign="Center" FontSize="Medium" />
                             <Label Text="hint: trigger a context action" YAlign="Center" FontSize="Small" />
                         </StackLayout>
-                    </StackLayout>
-                </ViewCell>
-            </DataTemplate>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
     
