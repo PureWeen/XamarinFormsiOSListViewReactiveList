@@ -79,20 +79,10 @@ namespace TheApp
             //uncomment this to use an ObservableCollection instead and the items will show up in the list
             //without a problem
             //ObservableCollection<Monkey> Monkies = new ObservableCollection<Monkey>();
-      
 
 
-            Monkies.CollectionChanged += (x, y) =>
-                {
-                    if(y.NewItems != null)
-                    {
-                        foreach (Monkey item in y.NewItems)
-                        {
-                            if(!Monkies2.Contains(item))
-                                Monkies2.Add(item);
-                        }
-                    }
-                };
+
+            Monkies.CollectionChanged += Monkies_CollectionChanged;
 
             int i = 0;
 
@@ -130,5 +120,17 @@ namespace TheApp
 
             
 		}
+
+        void Monkies_CollectionChanged(object x, NotifyCollectionChangedEventArgs y)
+        {
+                if(y.NewItems != null)
+                {
+                    foreach (Monkey item in y.NewItems)
+                    {
+                        if(!Monkies2.Contains(item))
+                            Monkies2.Add(item);
+                    }
+                }
+        }
 	}
 }
